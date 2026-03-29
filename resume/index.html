@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Resume</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+                <li><a href=".">Resume</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1>Kimi Chen</h1>
+            <p>
+                <a href="mailto:hello@kimichen.net">hello@kimichen.net</a> |
+                <a href="https://github.com/kimichenn">github.com/kimichenn</a>
+                |
+                <a href="https://linkedin.com/in/kimichenn"
+                    >linkedin.com/in/kimichenn</a
+                >
+                |
+                <a href="https://kimichen.net">kimichen.net</a>
+            </p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Education</h2>
+                <article>
+                    <header>
+                        <h3>University of California, San Diego</h3>
+                        <p>San Diego, CA</p>
+                    </header>
+                    <p><strong>GPA:</strong> 3.92</p>
+                    <p>
+                        B.S. in Data Science &amp; B.S. in Applied Mathematics,
+                        Minor in Cognitive Science
+                    </p>
+                    <p>
+                        Expected graduation:
+                        <time datetime="2028-06">June 2028</time>
+                    </p>
+                </article>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
+
+                <article>
+                    <header>
+                        <h3>Research Assistant</h3>
+                        <p>
+                            Professor Zhiting Hu's Research Lab - San Diego, CA
+                        </p>
+                        <p>
+                            <time datetime="2025-03">March 2025</time> -
+                            <time datetime="present">Present</time>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Engineered a scalable data-generation pipeline for a
+                            game-based World Model using Python and asyncio /
+                            multiprocessing; processed ~3M frame-action pairs in
+                            12 hours with a focus on throughput and thread
+                            safety.
+                        </li>
+                        <li>
+                            Orchestrated multi-node jobs on H100/H200 clusters
+                            using Slurm and Linux; added structured logging and
+                            retry logic to reduce failure rates and cut
+                            processing time by ~90%.
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Computer Vision Lead</h3>
+                        <p>Triton Unmanned Aerial Systems - San Diego, CA</p>
+                        <p>
+                            <time datetime="2024-09">September 2024</time> -
+                            <time datetime="present">Present</time>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Refactored ~100 files across Python and C++
+                            codebases into modular stages with typed interfaces;
+                            introduced CI/CD gates (GitHub Actions) that reduced
+                            new model integration time from 2 days to 3 hours.
+                        </li>
+                        <li>
+                            Optimized YOLOv11 models to ONNX and integrated with
+                            OpenCV to achieve real-time inference on NVIDIA
+                            Jetson embedded systems during flight.
+                        </li>
+                        <li>
+                            Containerized development environments using Docker
+                            and Dev Containers to ensure reproducibility;
+                            enforced code quality via Ruff, Mypy, and Google
+                            Test in pre-commit hooks.
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Data Science Intern</h3>
+                        <p>Lanner Inc. - Taipei, Taiwan</p>
+                        <p>
+                            <time datetime="2023-05">May 2023</time> -
+                            <time datetime="2023-08">August 2023</time>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Developed config-driven Python pipelines to detect
+                            cost anomalies with 96% precision; integrated models
+                            into the procurement workflow to automate reorder
+                            timing suggestions.
+                        </li>
+                        <li>
+                            Automated recurring data workflows using Power
+                            Automate, implementing strict schema checks and
+                            structured logging for auditability, reducing manual
+                            processing time by ~70%.
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Web Developer Intern</h3>
+                        <p>
+                            Silverline Educational Advisory Services - Boston,
+                            MA (Remote)
+                        </p>
+                        <p>
+                            <time datetime="2023-04">April 2023</time> -
+                            <time datetime="2023-11">November 2023</time>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Integrated Strapi CMS with the React frontend,
+                            building type-safe guardrails for content rendering
+                            that reduced production errors and cut manual update
+                            time by ~90%.
+                        </li>
+                        <li>
+                            Boosted site performance by 30 Lighthouse points
+                            through asset optimization and code splitting,
+                            significantly reducing Core Web Vitals (CLS and
+                            TBT).
+                        </li>
+                        <li>
+                            Led a major CSS refactor to adopt modular
+                            architecture (CSS Modules), improving code
+                            maintainability and ensuring fully responsive design
+                            across all breakpoints.
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
+            <section>
+                <h2>Projects</h2>
+
+                <article>
+                    <header>
+                        <h3>
+                            File Order Randomizer - Adobe Premiere Pro Extension
+                        </h3>
+                        <p>
+                            <a
+                                href="https://www.kimichen.net/projects/file-order-randomizer/"
+                            >
+                                kimichen.net/projects/file-order-randomizer
+                            </a>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Identified a critical workflow gap and engineered a
+                            native JavaScript extension using Adobe CEP;
+                            implemented recursive algorithms to flatten nested
+                            bin structures and randomize clip ordering.
+                        </li>
+                        <li>
+                            Solved complex timeline logic by calculating
+                            frame-precise tick parameters to ensure
+                            non-overlapping clip insertion; scaled tool to
+                            8,000+ downloads with a 4.9-star rating.
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Course Flow - UCSD Prerequisite Graph Tool</h3>
+                        <p>
+                            <a
+                                href="https://www.kimichen.net/projects/course-flow"
+                            >
+                                kimichen.net/projects/course-flow
+                            </a>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>
+                            Built a live prerequisite graph engine in React +
+                            TypeScript using React Flow and D3 force/hierarchy
+                            simulation; models full AND/OR logic across 7,227
+                            UCSD courses with automatic chain expansion and
+                            downstream status propagation.
+                        </li>
+                        <li>
+                            Implemented in-browser degree audit PDF parsing via
+                            pdfjs-dist, extracting course IDs, grades, and
+                            completion status, and merged results
+                            non-destructively into live graph state without a
+                            backend.
+                        </li>
+                        <li>
+                            Enforced UCSD overlap constraints across 173 major
+                            plans and 112 minor programs; built a progress
+                            dashboard, undo/redo stack, and versioned JSON
+                            export with forward-compatible migration.
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+
+                <article>
+                    <h3>Languages</h3>
+                    <p>Python, C++, Java, JavaScript, TypeScript, SQL</p>
+                </article>
+
+                <article>
+                    <h3>Web Development</h3>
+                    <p>React, HTML, CSS, Node.js, FastAPI</p>
+                </article>
+
+                <article>
+                    <h3>Systems &amp; DevOps</h3>
+                    <p>
+                        Linux, Docker, Dev Containers, Git, GitHub, Slurm,
+                        Makefile
+                    </p>
+                </article>
+
+                <article>
+                    <h3>ML Tools</h3>
+                    <p>PyTorch, TensorFlow, Scikit-Learn, OpenCV</p>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>
