@@ -7,33 +7,18 @@
         <title>Contact</title>
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../projects/index.html">Projects</a></li>
-                <li><a class="current" href=".">Contact</a></li>
-                <li><a href="../resume/index.html">Resume</a></li>
-            </ul>
-        </nav>
         <h1>Contact</h1>
-        <form
-            action="mailto:hello@kimichen.net"
-            method="POST"
-            enctype="text/plain"
-        >
+        <form action="mailto:hello@kimichen.net">
             <label>
-                Name:
-                <input type="text" name="name" />
-            </label>
-            <label>
-                Email:
-                <input type="email" name="email" />
+                Subject:
+                <input type="text" name="subject" />
             </label>
             <label>
                 Message:
-                <textarea name="message"></textarea>
+                <textarea name="body"></textarea>
             </label>
             <button type="submit">Send</button>
         </form>
+        <script type="module" src="../global.js"></script>
     </body>
 </html>
