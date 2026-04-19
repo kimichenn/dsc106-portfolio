@@ -217,3 +217,35 @@ button {
 .resume-page section:last-of-type article p {
     margin: 0;
 }
+
+#profile-stats {
+    margin-block: 1.5rem;
+}
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.25rem 1rem;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid oklch(80% 3% 250 / 40%);
+    border-radius: 0.5rem;
+    background-color: oklch(from canvas 98% 2% h);
+    text-align: center;
+}
+
+#profile-stats dt {
+    grid-row: 1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-size: 0.85rem;
+    color: oklch(55% 3% 250);
+    text-transform: uppercase;
+}
+
+#profile-stats dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
