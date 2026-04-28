@@ -236,10 +236,7 @@
                 </figure>
 
                 <p>
-                    <strong
-                        >Design Decisions and Rationale — Visualization 1
-                        (Preston Curve):</strong
-                    >
+                    <strong>Design Decisions and Rationale:</strong>
                 </p>
                 <ul class="decision-list">
                     <li>
@@ -325,115 +322,6 @@
                         </p>
                     </li>
                 </ul>
-
-                <figure>
-                    <img
-                        src="fig_for_2.png"
-                        alt="Small-multiple bar charts showing average life expectancy by World Bank income tier (Low, Lower-Middle, Upper-Middle, High) for 1960, 1990, and 2019. Life expectancy rises monotonically with income in all three years. In the 2019 panel, a red double-headed arrow annotates the 18-year gap between Low and High income groups."
-                    />
-                    <figcaption>
-                        "Every Step Up the Income Ladder Adds Years of Life".
-                        Average life expectancy rises at every World Bank income
-                        tier in each of 1960, 1990, and 2019. The red annotation
-                        in 2019 highlights the 18-year gap between the lowest
-                        and highest income groups. Source: World Bank | Country
-                        averages grouped by World Bank income classification.
-                    </figcaption>
-                </figure>
-
-                <p>
-                    <strong
-                        >Design Decisions and Rationale — Visualization 2
-                        (Income Ladder):</strong
-                    >
-                </p>
-                <ul class="decision-list">
-                    <li>
-                        <span class="decision-title"
-                            >1. Small multiples across three decades (1960,
-                            1990, 2019)</span
-                        >
-                        <span class="score score-pos">Score: +1</span>
-                        <p class="decision-body">
-                            Splitting the chart into three side-by-side panels
-                            makes the core claim easy to read: in
-                            <em>every</em> decade, life expectancy rises as
-                            income group rises. We thought about using one
-                            grouped bar chart, but the small-multiple layout
-                            makes each year's staircase visible at a glance and
-                            strengthens the impression that the pattern spans
-                            throughout history, rather than a single-year event.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >2. Ordered income tiers with a darkening blue color
-                            palette</span
-                        >
-                        <span class="score score-pos">Score: +0.5</span>
-                        <p class="decision-body">
-                            The bars goes from Low to Lower-Middle to
-                            Upper-Middle to High income and darken in the same
-                            direction, which helps show the "ladder" metaphor
-                            visually. We used the official World Bank income
-                            groups as they are transparent, reproducible, and
-                            widely understood, even though they pool countries
-                            with very different internal conditions. The
-                            sequential palette is a pretty natural choice, and
-                            it helps the viewer interpret the pattern as a clean
-                            upward progression.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >3. Title framing: "Every Step Up the Income Ladder
-                            Adds Years of Life"</span
-                        >
-                        <span class="score score-neg">Score: -1</span>
-                        <p class="decision-body">
-                            The title implies causation: wealth "adds" years of
-                            life rather than just correlating with them. A
-                            neutral alternative would be something like
-                            "Higher-Income Country Groups Have Higher Average
-                            Life Expectancy." We chose the causal framing as it
-                            is more memorable and turns a descriptive bar chart
-                            into a persuasive argument.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >4. Y-axis truncated at 30 years (not 0)</span
-                        >
-                        <span class="score score-neg">Score: -1</span>
-                        <p class="decision-body">
-                            The axis starts at 30 rather than 0, which amplifies
-                            the vertical distance between income groups. If we
-                            were to make the axis start from 0, the 2019 gap
-                            between Low income and High income would be far less
-                            apparent. Starting at 30 makes the staircase effect
-                            more prominent, which helps show the apparent size
-                            of the income-health association.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >5. Gap annotation focused on 2019 endpoints
-                            only</span
-                        >
-                        <span class="score score-neg">Score: -0.5</span>
-                        <p class="decision-body">
-                            The red double-headed arrow highlights only the full
-                            distance between the poorest and richest groups in
-                            2019, which is the year and comparison most useful
-                            to our argument. The number is accurate, but
-                            highlighting only the two endpoints weakens the idea
-                            that the intermediate groups actually are on a
-                            smoother and less dramatic gradient. We think that
-                            annotating 1960 (a 29-year gap) instead would have
-                            produced a somewhat weaker impression.
-                        </p>
-                    </li>
-                </ul>
             </section>
 
             <!-- ======================================================= -->
@@ -441,95 +329,6 @@
             <!-- ======================================================= -->
             <section>
                 <h3>AGAINST the Proposition</h3>
-
-                <figure>
-                    <img
-                        src="fig_against_1.png"
-                        alt="Scatter plot of GDP per capita (linear scale) vs. life expectancy among high-income nations in 2019. The trend line is nearly flat (r = 0.07). The United States is highlighted in red — high GDP but notably lower life expectancy than peer nations."
-                    />
-                    <figcaption>
-                        "Among Peer Economies, Wealth No Longer Predicts How
-                        Long People Live". Within the World Bank high-income
-                        group, the correlation between GDP per capita and life
-                        expectancy is pretty much zero (r = 0.07). The United
-                        States, despite having one of the highest GDPs, is
-                        behind peer nations in longevity. Source: World Bank
-                        (2019) | World Bank high-income country classification.
-                    </figcaption>
-                </figure>
-
-                <p>
-                    <strong
-                        >Design Decisions and Rationale — Visualization 1
-                        (Wealth Plateau):</strong
-                    >
-                </p>
-                <ul class="decision-list">
-                    <li>
-                        <span class="decision-title"
-                            >1. Filtering to affluent economies only, framed as
-                            a "peer comparison"</span
-                        >
-                        <span class="score score-neg">Score: -1.5</span>
-                        <p class="decision-body">
-                            Restricting to countries with GDP per capita above
-                            ~$35,000 removes pretty much the entire income range
-                            where the Preston Curve's slope is steepest, which
-                            makes the correlation near 0. The threshold is never
-                            mentioned in the title or footnote, and the chart is
-                            framed as studying "peer economies" by citing the
-                            World Bank's official high-income classification.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >2. Linear (not log) x-axis</span
-                        >
-                        <span class="score score-neg">Score: -1</span>
-                        <p class="decision-body">
-                            A linear scale stretches the high-GDP end, where
-                            Norway, Switzerland, and Luxembourg cluster, and
-                            compresses the moderate end, making the trend line
-                            look even flatter. Switching from the log scale used
-                            in FOR Visualization 1 to linear here is
-                            intentional, and using the linear scale to show the
-                            high-income seems pretty natural as well, as the
-                            range is narrower, so it doesn't come off as too
-                            obvious.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >3. Subtle USA color accent</span
-                        >
-                        <span class="score score-neg">Score: -0.5</span>
-                        <p class="decision-body">
-                            The USA is rendered as a slightly larger red dot
-                            with a "United States" label. This draws just enough
-                            attention for readers who know the US is both
-                            wealthy and not particularly long-lived make the
-                            connection themselves. The lack of annotation avoids
-                            looking like obvious propaganda while still drawing
-                            the reader's attention on the most useful data
-                            point.
-                        </p>
-                    </li>
-                    <li>
-                        <span class="decision-title"
-                            >4. Pearson r reported transparently in legend</span
-                        >
-                        <span class="score score-pos">Score: +1</span>
-                        <p class="decision-body">
-                            Including the correlation coefficient in the legend
-                            lets more sophisticated readers verify that the
-                            linear relationship is negligible (r = 0.07) rather
-                            than relying solely on the visual. This is a genuine
-                            choice that also helps our argument. We considered
-                            omitting it to keep the chart cleaner, but the
-                            transparent statistic helps our credibility.
-                        </p>
-                    </li>
-                </ul>
 
                 <figure>
                     <img
@@ -547,10 +346,7 @@
                 </figure>
 
                 <p>
-                    <strong
-                        >Design Decisions and Rationale — Visualization 2 (Great
-                        Health Convergence):</strong
-                    >
+                    <strong>Design Decisions and Rationale</strong>
                 </p>
                 <ul class="decision-list">
                     <li>
@@ -635,21 +431,17 @@
                     compelling data was really easy to find and frame. However,
                     the harder challenge was designing the AGAINST
                     visualizations to be subtly deceptive without being too
-                    obvious. AGAINST visualization 2 was probably the hardest as
-                    we had to reframe the metric entirely (gains instead of
-                    levels) and made sure that the downward correlation was
-                    visually obvious to feel conclusive. AGAINST visualization 1
-                    taught us that the framing of a filter is just as important
-                    as the filter itself, since citing an official World Bank
-                    country classification is very different from choosing some
-                    arbitrary dollar threshold in the title, even when the data
-                    is pretty much identical. What surprised us most was
-                    discovering how many of our most effective deceptions were
-                    technically honest and genuine, such as truncating the
-                    y-axis, ordering income groups into a visual ladder,
-                    restricting to an official high-income tier, and measuring
-                    improvement rather than current level. They all use real
-                    data without misreporting any individual number.
+                    obvious. The AGAINST visualization 2 was probably the
+                    hardest as we had to reframe the metric entirely (gains
+                    instead of levels) and made sure that the downward
+                    correlation was visually obvious to feel like an actual
+                    trend. What surprised us most was discovering how many of
+                    our most effective deceptions were technically honest and
+                    genuine, such as truncating the y-axis, ordering income
+                    groups into a visual ladder, restricting to an official
+                    high-income tier, and measuring improvement rather than
+                    current level. They all use real data without misreporting
+                    any individual number.
                 </p>
 
                 <p>
