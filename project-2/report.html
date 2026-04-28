@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Project 2: Persuasive or Deceptive Visualization?</title>
+        <style>
+            :root {
+                --color-neutral-95: hsl(220 10% 95%);
+                --color-neutral-90: hsl(220 10% 90%);
+                --color-neutral-80: hsl(220 10% 80%);
+                --color-neutral-70: hsl(220 10% 70%);
+                --color-neutral-60: hsl(220 10% 60%);
+                --color-neutral-50: hsl(220 10% 50%);
+                --color-neutral-40: hsl(220 10% 40%);
+                --color-neutral-30: hsl(220 10% 30%);
+                --color-neutral-20: hsl(220 10% 20%);
+                --color-neutral-10: hsl(220 10% 10%);
+            }
+
+            html {
+                font: 100%/1.5 system-ui;
+                counter-reset: figure;
+                background: var(--color-neutral-95);
+                max-width: min(75vw, 80em);
+                margin: 0 auto;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                line-height: 1.1;
+                font-weight: 600;
+                text-wrap: balance;
+            }
+
+            h1,
+            h2 {
+                border-bottom: 1px solid var(--color-neutral-80);
+                padding-bottom: 0.2em;
+            }
+
+            h1 {
+                margin-block: 1em 0.5rem;
+                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-weight: 800;
+            }
+
+            h1 small {
+                display: block;
+                width: fit-content;
+                padding: 0.2em 0.5em;
+                margin-inline: auto;
+                color: white;
+                background: var(--color-neutral-40);
+                font-size: 40%;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            h2 {
+                font-size: 180%;
+                color: var(--color-neutral-30);
+            }
+
+            h3 {
+                font-size: 130%;
+            }
+
+            ul,
+            ol {
+                padding-inline-start: 2em;
+            }
+
+            li + li {
+                margin-top: 0.2em;
+            }
+
+            header {
+                padding-block: 1em;
+                text-align: center;
+            }
+
+            main {
+                background: white;
+                color: var(--color-neutral-20);
+                border-radius: 1rem;
+                padding: 0.1rem 2rem;
+            }
+
+            figure {
+                margin: 1em 0;
+                padding: 0.5rem;
+                margin-inline: -0.5em;
+                border: 1px solid var(--color-neutral-80);
+                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                text-align: center;
+                background: white;
+            }
+
+            figure img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            figure > figcaption {
+                font: 500 75% system-ui;
+                background: var(--color-neutral-95);
+                padding: 0.5rem;
+                margin: -0.5rem;
+                margin-top: 0.5rem;
+                counter-increment: figure;
+                text-align: left;
+            }
+
+            figure > figcaption::before {
+                content: "Figure " counter(figure) ": ";
+                font-weight: bold;
+                color: var(--color-neutral-40);
+            }
+
+            section {
+                padding-block: 0.5em 1.5em;
+            }
+
+            section + section {
+                border-top: 1px solid var(--color-neutral-90);
+            }
+
+            /* Design-decision list */
+            .decision-list {
+                list-style: none;
+                padding-inline-start: 0;
+            }
+
+            .decision-list > li {
+                border-left: 4px solid var(--color-neutral-80);
+                padding: 0.6em 1em;
+                margin-bottom: 0.7em;
+                background: var(--color-neutral-95);
+                border-radius: 0 0.3em 0.3em 0;
+            }
+
+            .decision-list > li + li {
+                margin-top: 0;
+            }
+
+            .decision-title {
+                font-weight: 700;
+                font-size: 95%;
+            }
+
+            .score {
+                display: inline-block;
+                font-size: 78%;
+                font-weight: 700;
+                padding: 0.1em 0.55em;
+                border-radius: 0.25em;
+                margin-left: 0.5em;
+                vertical-align: middle;
+            }
+
+            .score-neg {
+                background: hsl(0 55% 93%);
+                color: hsl(0 55% 30%);
+                border: 1px solid hsl(0 55% 75%);
+            }
+
+            .score-zero {
+                background: hsl(220 10% 90%);
+                color: hsl(220 10% 30%);
+                border: 1px solid hsl(220 10% 70%);
+            }
+
+            .score-pos {
+                background: hsl(130 35% 90%);
+                color: hsl(130 45% 25%);
+                border: 1px solid hsl(130 40% 65%);
+            }
+
+            .decision-body {
+                margin-top: 0.3em;
+                font-size: 92%;
+                color: var(--color-neutral-30);
+            }
+
+            p {
+                margin-block: 0.8em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <small>Project 2</small>
+                Persuasive or Deceptive Visualization?
+            </h1>
+            <p>
+                <strong>Kimi Chen</strong> —
+                <em>kic011@ucsd.edu</em> &nbsp;·&nbsp;
+                <strong>Jayden Li</strong> —
+                <em>jbl011@ucsd.edu</em> &nbsp;·&nbsp;
+                <strong>Shreyesh Vankina</strong> —
+                <em>svankina@ucsd.edu</em> &nbsp;·&nbsp;
+                <strong>Dylan Louie</strong> — <em>dylouie@ucsd.edu</em>
+            </p>
+        </header>
+
+        <main>
+            <h2>
+                Proposition: Wealthier nations live longer. GDP per capita is
+                the strongest predictor of life expectancy.
+            </h2>
+
+            <!-- ======================================================= -->
+            <!-- FOR THE PROPOSITION                                       -->
+            <!-- ======================================================= -->
+            <section>
+                <h3>FOR the Proposition</h3>
+
+                <figure>
+                    <img
+                        src="fig_for_1.png"
+                        alt="Bubble scatter plot of GDP per capita (log scale) vs. life expectancy across 160+ countries in 2019. Bubbles are sized by population and colored by region. A polynomial trend line runs steeply upward from lower-left to upper-right. Norway is labeled to the left of its dot and Luxembourg to the right, with no overlapping annotations."
+                    />
+                    <figcaption>
+                        "Wealth Is the Best Medicine". GDP per capita strongly
+                        predicts life expectancy across 160+ countries in 2019.
+                        Bubble size encodes national population; color encodes
+                        World Bank region. A global polynomial trend line
+                        (fitted to log-transformed GDP) summarizes the dominant
+                        pattern. Source: World Bank (2019).
+                    </figcaption>
+                </figure>
+
+                <p>
+                    <strong
+                        >Design Decisions and Rationale — Visualization 1
+                        (Preston Curve):</strong
+                    >
+                </p>
+                <ul class="decision-list">
+                    <li>
+                        <span class="decision-title"
+                            >1. Log scale on the x-axis (GDP per capita)</span
+                        >
+                        <span class="score score-zero">Score: 0</span>
+                        <p class="decision-body">
+                            A log scale is the standard practice for income data
+                            spanning orders of magnitude ($600-$200,000), and it
+                            is also used in the original Preston (1975) paper
+                            and pretty much all subsequent works related to
+                            development economics since. We believe it is
+                            genuinely appropriate, but it also compresses the
+                            high-income range and makes the correlation appear
+                            tighter and more linear than an actual linear scale.
+                            We considered using a linear scale, but the log
+                            scale helps our persuasion, which makes this choice
+                            ambiguous, hence a score of 0.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >2. Title framing: "Wealth Is the Best
+                            Medicine"</span
+                        >
+                        <span class="score score-neg">Score: -1</span>
+                        <p class="decision-body">
+                            The title implies a causation (wealth improves
+                            health) rather than just reporting a correlation. A
+                            neutral title would be something like "Higher-GDP
+                            Countries Tend to Have Higher Life Expectancy."
+                            Instead, our framing uses the authority of medicine
+                            to convince the reader that this is a causation. We
+                            did consider the factual title but settled on this
+                            one as it is much more persuasive.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >3. Polynomial trend line over all 160+
+                            countries</span
+                        >
+                        <span class="score score-pos">Score: +1</span>
+                        <p class="decision-body">
+                            The trend line is an actual summary of the global
+                            average relationship. We did not cherry-pick a weird
+                            model and follows the data faithfully (degree-3
+                            polynomial fitted to log-transformed GDP). Including
+                            it prevents readers from looking at individual
+                            outliers and helps them see the positive pattern.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >4. Use of 2019 data only (single
+                            cross-section)</span
+                        >
+                        <span class="score score-neg">Score: -0.5</span>
+                        <p class="decision-body">
+                            2019 is the most recent pre-pandemic year with
+                            near-complete data, and it also has the strongest
+                            correlation, whereas earlier decades has more
+                            scatter. Choosing 2019 maximizes the strength of our
+                            argument without being obviously wrong, but we also
+                            didn't disclose the year selection other than a tiny
+                            footnote.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >5. Bubble size proportional to population</span
+                        >
+                        <span class="score score-pos">Score: +1</span>
+                        <p class="decision-body">
+                            Encoding population in bubble area adds meaningful
+                            demographic context and prevents small, micro-states
+                            from being over-weighted visually. The largest
+                            bubbles like China and India are close to the trend
+                            line, improving our claim for the majority of the
+                            world's people. This is an genuine design choice
+                            that so happens to help our persuasion.
+                        </p>
+                    </li>
+                </ul>
+
+                <figure>
+                    <img
+                        src="fig_for_2.png"
+                        alt="Small-multiple bar charts showing average life expectancy by World Bank income tier (Low, Lower-Middle, Upper-Middle, High) for 1960, 1990, and 2019. Life expectancy rises monotonically with income in all three years. In the 2019 panel, a red double-headed arrow annotates the 18-year gap between Low and High income groups."
+                    />
+                    <figcaption>
+                        "Every Step Up the Income Ladder Adds Years of Life".
+                        Average life expectancy rises at every World Bank income
+                        tier in each of 1960, 1990, and 2019. The red annotation
+                        in 2019 highlights the 18-year gap between the lowest
+                        and highest income groups. Source: World Bank | Country
+                        averages grouped by World Bank income classification.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    <strong
+                        >Design Decisions and Rationale — Visualization 2
+                        (Income Ladder):</strong
+                    >
+                </p>
+                <ul class="decision-list">
+                    <li>
+                        <span class="decision-title"
+                            >1. Small multiples across three decades (1960,
+                            1990, 2019)</span
+                        >
+                        <span class="score score-pos">Score: +1</span>
+                        <p class="decision-body">
+                            Splitting the chart into three side-by-side panels
+                            makes the core claim easy to read: in
+                            <em>every</em> decade, life expectancy rises as
+                            income group rises. We thought about using one
+                            grouped bar chart, but the small-multiple layout
+                            makes each year's staircase visible at a glance and
+                            strengthens the impression that the pattern spans
+                            throughout history, rather than a single-year event.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >2. Ordered income tiers with a darkening blue color
+                            palette</span
+                        >
+                        <span class="score score-pos">Score: +0.5</span>
+                        <p class="decision-body">
+                            The bars goes from Low to Lower-Middle to
+                            Upper-Middle to High income and darken in the same
+                            direction, which helps show the "ladder" metaphor
+                            visually. We used the official World Bank income
+                            groups as they are transparent, reproducible, and
+                            widely understood, even though they pool countries
+                            with very different internal conditions. The
+                            sequential palette is a pretty natural choice, and
+                            it helps the viewer interpret the pattern as a clean
+                            upward progression.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >3. Title framing: "Every Step Up the Income Ladder
+                            Adds Years of Life"</span
+                        >
+                        <span class="score score-neg">Score: -1</span>
+                        <p class="decision-body">
+                            The title implies causation: wealth "adds" years of
+                            life rather than just correlating with them. A
+                            neutral alternative would be something like
+                            "Higher-Income Country Groups Have Higher Average
+                            Life Expectancy." We chose the causal framing as it
+                            is more memorable and turns a descriptive bar chart
+                            into a persuasive argument.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >4. Y-axis truncated at 30 years (not 0)</span
+                        >
+                        <span class="score score-neg">Score: -1</span>
+                        <p class="decision-body">
+                            The axis starts at 30 rather than 0, which amplifies
+                            the vertical distance between income groups. If we
+                            were to make the axis start from 0, the 2019 gap
+                            between Low income and High income would be far less
+                            apparent. Starting at 30 makes the staircase effect
+                            more prominent, which helps show the apparent size
+                            of the income-health association.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >5. Gap annotation focused on 2019 endpoints
+                            only</span
+                        >
+                        <span class="score score-neg">Score: -0.5</span>
+                        <p class="decision-body">
+                            The red double-headed arrow highlights only the full
+                            distance between the poorest and richest groups in
+                            2019, which is the year and comparison most useful
+                            to our argument. The number is accurate, but
+                            highlighting only the two endpoints weakens the idea
+                            that the intermediate groups actually are on a
+                            smoother and less dramatic gradient. We think that
+                            annotating 1960 (a 29-year gap) instead would have
+                            produced a somewhat weaker impression.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ======================================================= -->
+            <!-- AGAINST THE PROPOSITION                                   -->
+            <!-- ======================================================= -->
+            <section>
+                <h3>AGAINST the Proposition</h3>
+
+                <figure>
+                    <img
+                        src="fig_against_1.png"
+                        alt="Scatter plot of GDP per capita (linear scale) vs. life expectancy among high-income nations in 2019. The trend line is nearly flat (r = 0.07). The United States is highlighted in red — high GDP but notably lower life expectancy than peer nations."
+                    />
+                    <figcaption>
+                        "Among Peer Economies, Wealth No Longer Predicts How
+                        Long People Live". Within the World Bank high-income
+                        group, the correlation between GDP per capita and life
+                        expectancy is pretty much zero (r = 0.07). The United
+                        States, despite having one of the highest GDPs, is
+                        behind peer nations in longevity. Source: World Bank
+                        (2019) | World Bank high-income country classification.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    <strong
+                        >Design Decisions and Rationale — Visualization 1
+                        (Wealth Plateau):</strong
+                    >
+                </p>
+                <ul class="decision-list">
+                    <li>
+                        <span class="decision-title"
+                            >1. Filtering to affluent economies only, framed as
+                            a "peer comparison"</span
+                        >
+                        <span class="score score-neg">Score: -1.5</span>
+                        <p class="decision-body">
+                            Restricting to countries with GDP per capita above
+                            ~$35,000 removes pretty much the entire income range
+                            where the Preston Curve's slope is steepest, which
+                            makes the correlation near 0. The threshold is never
+                            mentioned in the title or footnote, and the chart is
+                            framed as studying "peer economies" by citing the
+                            World Bank's official high-income classification.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >2. Linear (not log) x-axis</span
+                        >
+                        <span class="score score-neg">Score: -1</span>
+                        <p class="decision-body">
+                            A linear scale stretches the high-GDP end, where
+                            Norway, Switzerland, and Luxembourg cluster, and
+                            compresses the moderate end, making the trend line
+                            look even flatter. Switching from the log scale used
+                            in FOR Visualization 1 to linear here is
+                            intentional, and using the linear scale to show the
+                            high-income seems pretty natural as well, as the
+                            range is narrower, so it doesn't come off as too
+                            obvious.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >3. Subtle USA color accent</span
+                        >
+                        <span class="score score-neg">Score: -0.5</span>
+                        <p class="decision-body">
+                            The USA is rendered as a slightly larger red dot
+                            with a "United States" label. This draws just enough
+                            attention for readers who know the US is both
+                            wealthy and not particularly long-lived make the
+                            connection themselves. The lack of annotation avoids
+                            looking like obvious propaganda while still drawing
+                            the reader's attention on the most useful data
+                            point.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >4. Pearson r reported transparently in legend</span
+                        >
+                        <span class="score score-pos">Score: +1</span>
+                        <p class="decision-body">
+                            Including the correlation coefficient in the legend
+                            lets more sophisticated readers verify that the
+                            linear relationship is negligible (r = 0.07) rather
+                            than relying solely on the visual. This is a genuine
+                            choice that also helps our argument. We considered
+                            omitting it to keep the chart cleaner, but the
+                            transparent statistic helps our credibility.
+                        </p>
+                    </li>
+                </ul>
+
+                <figure>
+                    <img
+                        src="fig_against_2.png"
+                        alt="Bubble scatter plot of GDP per capita (log scale, 2019) vs. life expectancy gain from 1990 to 2019. A downward trend line (r = -0.47) shows that lower-income countries gained far more years (Rwanda +36, Ethiopia +19, Malawi +18) while the USA gained only 3.5 years, marked by a dotted horizontal reference line."
+                    />
+                    <figcaption>
+                        "The Richer the Country, the Less It Improved".
+                        Low-income nations gained far more years of life between
+                        1990 and 2019 than wealthy ones (r = -0.47). A dotted
+                        line marks the United States' gain of +3.5 years, with
+                        countries highlighting the countries that surpassed this
+                        benchmark. Source: World Bank (1990-2019).
+                    </figcaption>
+                </figure>
+
+                <p>
+                    <strong
+                        >Design Decisions and Rationale — Visualization 2 (Great
+                        Health Convergence):</strong
+                    >
+                </p>
+                <ul class="decision-list">
+                    <li>
+                        <span class="decision-title"
+                            >1. Reframing the metric: life expectancy gain
+                            rather than absolute level</span
+                        >
+                        <span class="score score-neg">Score: -1.5</span>
+                        <p class="decision-body">
+                            Measuring improvement (1990-2019) instead of current
+                            level is very deceptive. Countries starting from
+                            very low baselines had a lot more room to improve.
+                            So the negative correlation between GDP and gain is
+                            thus just the regression to the mean, not evidence
+                            that wealth is irrelevant. Nothing in this
+                            visualization discloses this confound.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >2. Title: "The Richer the Country, the Less It
+                            Improved"</span
+                        >
+                        <span class="score score-neg">Score: -1.5</span>
+                        <p class="decision-body">
+                            The title implies that wealth actively slows health
+                            progress, which the data does not support. A more
+                            accurate title would be: "Countries Starting From
+                            Lower Life Expectancies Had More Room to Improve."
+                            Our phrasing inverts the causal story, as it is low
+                            starting values, not low GDP, that predicts large
+                            gains.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >3. Log scale on x-axis and labelled outlier
+                            annotations</span
+                        >
+                        <span class="score score-neg">Score: -0.5</span>
+                        <p class="decision-body">
+                            The log scale compresses the high-income range,
+                            which makes the downward slope appear steep and
+                            consistent across the entire distribution. Labelling
+                            individual outlier countries like Rwanda (+36 yrs),
+                            Ethiopia (+19 yrs), Malawi (+18 yrs) with their
+                            large gain figures further dramatizes the downward
+                            story.
+                        </p>
+                    </li>
+                    <li>
+                        <span class="decision-title"
+                            >4. USA reference line as comparison anchor</span
+                        >
+                        <span class="score score-zero">Score: 0</span>
+                        <p class="decision-body">
+                            Drawing the USA's gain (+3.5 years) as a horizontal
+                            dotted reference line allows for comparison, and
+                            most poor countries beat this benchmark. The USA
+                            benchmark is true and retrieved exactly from the
+                            data. The deception here is that we chose a single
+                            well-known outlier as the reference rather than the
+                            global average gain (~7.5 years), which would
+                            produce a less dramatic contrast. We think this is
+                            neutral as the number is accurate and the line is
+                            clearly labelled, even if the framing is strategic.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ======================================================= -->
+            <!-- FINAL REFLECTION                                          -->
+            <!-- ======================================================= -->
+            <section>
+                <h2>Final Reflection</h2>
+
+                <p>
+                    We believe the most straightforward part of this project was
+                    making the FOR visualizations. Since the Preston Curve is
+                    one of the most studied areas in development economics,
+                    compelling data was really easy to find and frame. However,
+                    the harder challenge was designing the AGAINST
+                    visualizations to be subtly deceptive without being too
+                    obvious. AGAINST visualization 2 was probably the hardest as
+                    we had to reframe the metric entirely (gains instead of
+                    levels) and made sure that the downward correlation was
+                    visually obvious to feel conclusive. AGAINST visualization 1
+                    taught us that the framing of a filter is just as important
+                    as the filter itself, since citing an official World Bank
+                    country classification is very different from choosing some
+                    arbitrary dollar threshold in the title, even when the data
+                    is pretty much identical. What surprised us most was
+                    discovering how many of our most effective deceptions were
+                    technically honest and genuine, such as truncating the
+                    y-axis, ordering income groups into a visual ladder,
+                    restricting to an official high-income tier, and measuring
+                    improvement rather than current level. They all use real
+                    data without misreporting any individual number.
+                </p>
+
+                <p>
+                    We now define <em>ethical visualization</em> as preserving
+                    interpretive fidelity, meaning that the conclusion a reader
+                    draws is proportional to what the full dataset can
+                    reasonably support. Choices like titling a correlation as
+                    causation, selecting a subset that inverts a global trend,
+                    or truncating a scale to magnify a gap are not individually
+                    false, but together they guide readers toward conclusions
+                    that would be false to the broader data. By contrast, honest
+                    design leads the reader to a conclusion they would still
+                    hold after seeing the full methodology and dataset. We think
+                    the clearest signal of an ethical violation is when the
+                    designer must hide their transformation choices, such as a
+                    filter undisclosed in a footnote or a truncated axis left
+                    unjustified, since transparency would undermine the
+                    argument.
+                </p>
+
+                <p>
+                    We think that the difference between persuasion and
+                    deception is not in any single design choice but in their
+                    intent as a whole. A log scale is appropriate for income
+                    data, so is filtering a dataset with a stated reason.
+                    However, adding on top a selective filter, a scale switch, a
+                    causal title, and a prominent outlier annotation creates a
+                    visualization that is designed to mislead. We think that the
+                    rule should be that a visualization is acceptable if a
+                    reader who saw the full methodology would still consider the
+                    conclusion reasonable. When the methodology must be hidden
+                    to sustain the argument, the line has been crossed. We know
+                    that this line can always be drawn cleanly and can be
+                    ambiguous in certain scenarios, since every design choice
+                    frames the data from some perspective, but intent and
+                    transparency together seem like the best criteria available,
+                    and the most useful guide for our own future practice.
+                </p>
+            </section>
+        </main>
+    </body>
+</html>
