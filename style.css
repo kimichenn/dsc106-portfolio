@@ -123,6 +123,79 @@ button {
     font-variant-numeric: oldstyle-nums;
 }
 
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    gap: 1em;
+}
+
+.stats dt {
+    grid-row: 1;
+    font-weight: bold;
+}
+
+.stats dd {
+    grid-row: 2;
+    margin: 0;
+}
+
+.gridlines line {
+    stroke: color-mix(in oklch, canvastext, canvas 80%);
+}
+
+.gridlines path {
+    display: none;
+}
+
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25em 1em;
+    margin: 0;
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+}
+
+dl.info dt {
+    color: color-mix(in oklch, canvastext, canvas 45%);
+    font-weight: normal;
+}
+
+dl.info dd {
+    margin: 0;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 1;
+    padding: 0.75em 1em;
+    border-radius: 0.5em;
+    background-color: color-mix(in oklch, canvas, canvastext 4%);
+    box-shadow: 0 0.25em 1em oklch(0% 0 0 / 20%);
+    backdrop-filter: blur(0.5em);
+}
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5);
+}
+
+circle.selected {
+    fill: #ff6b6b;
+}
+
 #projects-pie-plot {
     max-width: 20em;
     overflow: visible;
