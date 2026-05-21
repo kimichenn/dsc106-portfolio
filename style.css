@@ -186,6 +186,10 @@ circle {
     transition: 200ms;
     transform-origin: center;
     transform-box: fill-box;
+
+    @starting-style {
+        r: 0;
+    }
 }
 
 circle:hover {
@@ -384,4 +388,119 @@ path.selected {
     margin: 0;
     font-size: 1.75rem;
     font-weight: 500;
+}
+
+.slider-label {
+    display: flex;
+    align-items: baseline;
+    margin-block: 1em;
+}
+
+.slider-label > div {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+}
+
+.slider-label > div > input[type='range'] {
+    flex: 1;
+}
+
+.slider-label > time {
+    margin-left: auto;
+}
+
+#files {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    > div {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: subgrid;
+    }
+
+    dt {
+        grid-column: 1;
+    }
+
+    dt small {
+        display: block;
+        font-size: 0.75em;
+        opacity: 0.7;
+        font-weight: normal;
+    }
+
+    dd {
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        align-content: start;
+        gap: 0.15em;
+        padding-top: 0.6em;
+        margin-left: 0;
+    }
+}
+
+.loc {
+    display: flex;
+    width: 0.5em;
+    aspect-ratio: 1;
+    background: var(--color, steelblue);
+    border-radius: 50%;
+}
+
+#scrolly-1 {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+
+    > * {
+        flex: 1;
+    }
+}
+
+#scatter-story {
+    position: relative;
+}
+
+#scatter-plot {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    height: 50vh;
+}
+
+#scatter-story .step {
+    padding-bottom: 20vh;
+}
+
+#scrolly-2 {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin-top: 4em;
+
+    > * {
+        flex: 1;
+    }
+}
+
+#files-story {
+    position: relative;
+}
+
+#files-plot {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#files-story .step {
+    padding-bottom: 20vh;
 }
